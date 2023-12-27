@@ -19,9 +19,9 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_TOKEN
     - name: Build
-      run: docker build . --pull --tag bshp/core:latest --progress=plain
+      run: docker build . --pull --tag bshp/base:latest --progress=plain
     - name: Push
       run: |
-        docker tag bshp/core:latest bshp/core:jammy
-        docker push bshp/core:latest
-        docker push bshp/core:jammy
+        docker tag bshp/base:latest bshp/base:jammy
+        docker push bshp/base:latest
+        docker push bshp/base:jammy
