@@ -14,6 +14,7 @@ RUN set -eux; \
     ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && echo ${TZ} > /etc/timezone; \
     apt-get update; \
     apt-get install -y --no-install-recommends $installPkgs; \
-    apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false;
+    apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
+    rm -rf /var/lib/apt/lists/*;
     
 CMD ["/bin/bash"]
