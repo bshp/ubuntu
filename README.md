@@ -1,4 +1,19 @@
 #### Docker Core Image  
-Base image for containers    
+Base image for our containers
     
-OS: Ubuntu Server LTS - Latest, updated weekly from base    
+#### Base OS:    
+Ubuntu Server LTS - Latest
+    
+#### Packages:    
+Updated weekly from the official upstream Ubuntu LTS image
+````
+ca-certificates 
+curl 
+gnupg 
+jq 
+openssl 
+tzdata 
+unzip 
+wget
+````
+    

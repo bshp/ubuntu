@@ -10,7 +10,7 @@ ENV OS_VERSION=2204
 ENV OS_TIMEZONE=${TZ}
 
 RUN set -eux; \
-    installPkgs='ca-certificates curl gnupg jq openssl tzdata wget'; \
+    installPkgs='ca-certificates curl gnupg jq openssl tzdata unzip wget'; \
     ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && echo ${TZ} > /etc/timezone; \
     apt-get update; \
     apt-get install -y --no-install-recommends $installPkgs; \
