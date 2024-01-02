@@ -19,7 +19,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_TOKEN
     - name: Build 22.04
-      run: docker build . --pull --build-arg VERSION=22.04 --tag bshp/base:latest --progress=plain
+      run: docker build . --pull --build-arg VERSION=22.04 --tag bshp/base:latest --progress=plain --no-cache
     - name: Push 22.04
       run: |
         docker tag bshp/base:latest bshp/base:22.04
@@ -29,7 +29,7 @@ jobs:
         docker push bshp/base:jammy
         docker push bshp/base:lts
     - name: Build 24.04
-      run: docker build . --pull --build-arg VERSION=24.04 --tag bshp/base:24.04 --progress=plain
+      run: docker build . --pull --build-arg VERSION=24.04 --tag bshp/base:24.04 --progress=plain --no-cache
     - name: Push 24.04
       run: |
         docker tag bshp/base:24.04 bshp/base:noble
