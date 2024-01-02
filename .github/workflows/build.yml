@@ -18,10 +18,20 @@ jobs:
         DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_TOKEN
-    - name: Build
-      run: docker build . --pull --tag bshp/base:latest --progress=plain
-    - name: Push
+    - name: Build 22.04
+      run: docker build . --pull --build-arg VERSION=22.04 --tag bshp/base:latest --progress=plain
+    - name: Push 22.04
       run: |
+        docker tag bshp/base:latest bshp/base:22.04
         docker tag bshp/base:latest bshp/base:jammy
-        docker push bshp/base:latest
+        docker tag bshp/base:latest bshp/base:lts
+        docker push bshp/base:22.04
         docker push bshp/base:jammy
+        docker push bshp/base:lts
+    - name: Build 24.04
+      run: docker build . --pull --build-arg VERSION=24.04 --tag bshp/base:24.04 --progress=plain
+    - name: Push 24.04
+      run: |
+        docker tag bshp/base:24.04 bshp/base:noble
+        docker push bshp/base:24.04
+        docker push bshp/base:noble
