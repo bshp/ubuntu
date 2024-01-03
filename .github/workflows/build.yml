@@ -19,19 +19,19 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_TOKEN
     - name: Build 22.04
-      run: docker build . --pull --build-arg VERSION=22.04 --tag bshp/base:latest --progress=plain --no-cache
+      run: docker build . --pull --build-arg VERSION=22.04 --tag bshp/ubuntu:latest --progress=plain --no-cache
     - name: Push 22.04
       run: |
-        docker tag bshp/base:latest bshp/base:22.04
-        docker tag bshp/base:latest bshp/base:jammy
-        docker tag bshp/base:latest bshp/base:lts
-        docker push bshp/base:22.04
-        docker push bshp/base:jammy
-        docker push bshp/base:lts
+        docker tag bshp/ubuntu:latest bshp/ubuntu:22.04
+        docker tag bshp/ubuntu:latest bshp/ubuntu:jammy
+        docker tag bshp/ubuntu:latest bshp/ubuntu:lts
+        docker push bshp/ubuntu:22.04
+        docker push bshp/ubuntu:jammy
+        docker push bshp/ubuntu:lts
     - name: Build 24.04
-      run: docker build . --pull --build-arg VERSION=24.04 --tag bshp/base:24.04 --progress=plain --no-cache
+      run: docker build . --pull --build-arg VERSION=24.04 --tag bshp/ubuntu:24.04 --progress=plain --no-cache
     - name: Push 24.04
       run: |
-        docker tag bshp/base:24.04 bshp/base:noble
-        docker push bshp/base:24.04
-        docker push bshp/base:noble
+        docker tag bshp/ubuntu:24.04 bshp/ubuntu:noble
+        docker push bshp/ubuntu:24.04
+        docker push bshp/ubuntu:noble
